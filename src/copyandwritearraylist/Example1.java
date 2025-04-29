@@ -3,6 +3,7 @@ package copyandwritearraylist;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Example1 {
@@ -23,7 +24,9 @@ public class Example1 {
         list.remove(1);
         while (iterator.hasNext()){
             System.out.println(iterator.next());
+            iterator.remove();
             list.remove(0);
         }
+        ConcurrentHashMap.KeySetView<Object, Boolean> objects = ConcurrentHashMap.newKeySet();
     }
 }
